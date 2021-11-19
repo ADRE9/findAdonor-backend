@@ -11,9 +11,6 @@ connectDB();
 
 var environment = process.env.NODE_ENV;
 
-// app.get("/*", (req, res) => {
-//   res.send("Hello World");
-// });
 
 //routers used
 app.use(userRoutes);
