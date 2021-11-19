@@ -36,12 +36,6 @@ const userSchema = new mongoose.Schema({
       }
     }
   },
-  gender: {
-    type: String,
-    trim: true,
-    required: true,
-    lowercase: true,
-  },
   bloodGroup: {
     type: String,
     trim: true,
