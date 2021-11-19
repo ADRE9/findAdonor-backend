@@ -11,9 +11,12 @@ connectDB();
 
 var environment = process.env.NODE_ENV;
 
-
 //routers used
 app.use(userRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 const PORT = environment==="production"?process.env.PORT:8000;
 
