@@ -66,8 +66,9 @@ const userSchema = new mongoose.Schema({
     required: true,
     lowercase: true,
   },
-  roles: {
+  role: {
     type: String,
+    default:'user',
     trim: true,
     required: true,
     lowercase: true,
