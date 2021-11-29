@@ -79,6 +79,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 7
   },
+  active: {
+    type: Boolean,
+    required: true,
+    default:false,
+  },
   tokens: [
     {
       token: {

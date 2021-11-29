@@ -94,8 +94,32 @@ const removeUser = async (req, res) => {
     await req.user.remove();
     res.status(200).send(req.user);
   } catch (error) {
-    res.status(400).send({msg:"Unable to delete user",error})
+    res.status(400).send({ msg: "Unable to delete user", error })
+  }
+};
+
+const findADonor = async (req, res) => {
+  try {
+    const donors = await User.find({ role: "donor",active:true });
+    res.status(200).send(donors);
+  } catch (error) {
+    res.status(404).send({ msg: "Unable to find donors", error })
+  }
+};
+
+const registerAsADonor = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.user._id });
+    if (!user) {
+      return res.status(404).send({ msg: "No such user found" });
+    }
+    user[role] = "donor";
+    user[active] = true;
+    await user.save();
+    res.status(200).send({ msg: "Sucessfully registered as donor!", user: user });
+  } catch (error) {
+    
   }
 }
 
-module.exports={createUser,logInUser,updateUser,logout,logoutAll,userData,removeUser}
+module.exports={createUser,logInUser,updateUser,logout,logoutAll,userData,removeUser,findADonor,registerAsADonor}
