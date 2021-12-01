@@ -115,10 +115,12 @@ const registerAsADonor = async (req, res) => {
     }
     user[role] = "donor";
     user[active] = true;
+    user.location[latitude] = req.body.latitude;
+    user.location[longitude] = req.body.longitude;
     await user.save();
     res.status(200).send({ msg: "Sucessfully registered as donor!", user: user });
   } catch (error) {
-    
+    res.status(404).send({ msg: "Unable to register as donor", error })
   }
 }
 

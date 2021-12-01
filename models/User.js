@@ -84,6 +84,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     default:false,
   },
+  location: {
+    latitude: {
+      type:Number
+    },
+    longitude: {
+      type:Number
+    }
+  },
   tokens: [
     {
       token: {
