@@ -115,8 +115,7 @@ const registerAsADonor = async (req, res) => {
     }
     user[role] = "donor";
     user[active] = true;
-    user.location[latitude] = req.body.latitude;
-    user.location[longitude] = req.body.longitude;
+    user[location] = { "longitude": req.body.longitude, "latitude": req.body.latitude };
     await user.save();
     res.status(200).send({ msg: "Sucessfully registered as donor!", user: user });
   } catch (error) {
