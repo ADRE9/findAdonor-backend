@@ -120,7 +120,7 @@ const registerAsADonor = async (req, res) => {
     await user.save();
     res.status(200).send({ msg: "Sucessfully registered as donor!", user: user });
   } catch (error) {
-    res.status(404).send({ msg: "Unable to register as donor", error })
+    res.status(400).send({ msg: "Unable to register as donor", error })
   }
 }
 
