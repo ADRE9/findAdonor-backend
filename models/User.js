@@ -90,7 +90,7 @@ const userSchema = new mongoose.Schema({
     },
     longitude: {
       type:Number
-    }
+    } 
   },
   tokens: [
     {

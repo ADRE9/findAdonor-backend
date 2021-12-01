@@ -32,7 +32,7 @@ const logInUser = async (req, res) => {
 //Updating User data
 const updateUser = async (req, res) => {
   const updates = Object.keys(req.body);
-  const validUpdates = ['name', 'age', 'bloodGroup', 'landmark', 'city', 'district', 'state', 'password'];
+  const validUpdates = ['name', 'age', 'bloodGroup', 'landmark', 'city', 'district', 'state', 'password','location'];
   const isValidOperation = updates.every(update => {
     return validUpdates.includes(update);
   });
@@ -113,9 +113,10 @@ const registerAsADonor = async (req, res) => {
     if (!user) {
       return res.status(404).send({ msg: "No such user found" });
     }
-    user[role] = "donor";
-    user[active] = true;
-    user[location] = { "longitude": req.body.longitude, "latitude": req.body.latitude };
+    user['role'] = "donor";
+    user['active'] = true;
+    user['location'] = { "longitude": req.body.longitude, "latitude": req.body.latitude };
+    console.log(user);
     await user.save();
     res.status(200).send({ msg: "Sucessfully registered as donor!", user: user });
   } catch (error) {
