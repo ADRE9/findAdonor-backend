@@ -42,6 +42,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     lowercase: true,
   },
+  gender: {
+    type: String,
+    trim: true,
+    required: true,
+    lowercase: true,
+  },
   landmark: {
     type: String,
     trim: true,
@@ -66,6 +72,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     lowercase: true,
   },
+  // USER,DONOR,BLOOD BANK
   role: {
     type: String,
     default:'user',
