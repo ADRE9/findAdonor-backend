@@ -3,6 +3,7 @@ const connectDB = require('./database');
 
 //routers
 const userRoutes = require('./routers/userRoutes');
+const bloodBankRoutes = require('./routers/bloodBankRoutes');
 
 const app = express();
 
@@ -13,6 +14,7 @@ var environment = process.env.NODE_ENV;
 
 //routers used
 app.use(userRoutes);
+app.use(bloodBankRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
