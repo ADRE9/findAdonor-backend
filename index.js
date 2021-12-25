@@ -17,7 +17,7 @@ app.use(userRoutes);
 app.use(bloodBankRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello World Azure");
 });
 
 const PORT = environment==="production"?process.env.PORT:8000;
