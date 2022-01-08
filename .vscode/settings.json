@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/bcc1d383-4f88-43f9-a699-c06a2f2c7488/resourceGroups/amlajan/providers/Microsoft.Web/sites/findDonor",
+  "appService.deploySubpath": "."
+}
